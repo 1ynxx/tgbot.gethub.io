@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Shop</title>
     <style>
@@ -64,10 +64,17 @@
 <body>
     <div id="main">
         <h1>Онлайн магазин</h1>
-        <img src="https://t3.ftcdn.net/jpg/00/27/57/96/360_F_27579652_tM7V4fZBBw8RLmZo0Bi8WhtO2EosTRFD.jpg">
+        <img src="https://t3.ftcdn.net/jpg/00/27/57/96/360_F_27579652_tM7V4fZBBw8RLmZo0Bi8WhtO2EosTRFD.jpg" alt="Пицца">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         <button id="buy">Купить</button>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        Telegram.WebApp.ready();
+
+        document.getElementById('buy').addEventListener('click', function() {
+            Telegram.WebApp.close();
+        });
+    </script>
 </body>
 </html>
