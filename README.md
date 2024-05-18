@@ -2,9 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
@@ -20,8 +18,6 @@
             font-weight: 200;
             color: #000;
             background: linear-gradient(to bottom, #ffffff, #000000);
-            overflow: hidden;
-            position: relative;
             transition: background 0.5s, color 0.5s;
         }
 
@@ -34,8 +30,6 @@
             width: 100%;
             padding: 20px;
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
 
         h1 {
@@ -78,10 +72,9 @@
             font-size: 16px;
             font-weight: 500;
             cursor: pointer;
-            transition: all 500ms ease;
+            transition: all 0.3s ease;
             color: #fff;
             background: #007bff;
-            position: relative;
         }
 
         .theme-toggle {
@@ -91,7 +84,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0;
         }
 
         .theme-toggle img {
@@ -99,48 +91,8 @@
             height: 20px;
         }
 
-        button::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.5s ease;
-        }
-
         button:hover {
             background: #0056b3;
-        }
-
-        .emoji {
-            position: absolute;
-            font-size: 2rem;
-            animation: fall 8s linear infinite, rotate 5s linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes fall {
-            0% {
-                top: -10%;
-                opacity: 1;
-            }
-            100% {
-                top: 110%;
-                opacity: 0;
-            }
-        }
-
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         .extra-buttons {
@@ -190,7 +142,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
             z-index: 1000;
-            opacity: 1;
             transition: opacity 0.2s ease-in-out;
         }
 
@@ -277,52 +228,6 @@
             display: flex;
         }
 
-        #gift-button {
-            width: 100%;
-            max-width: 100px;
-            height: 40px;
-            font-size: 14px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-            color: white;
-            background: #ff69b4;
-            position: relative;
-            box-shadow: 0 0 5px #ff69b4;
-        }
-
-        #gift-button:hover {
-            box-shadow: 0 0 8px;
-        }
-
-        .rainbow-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff0099, #493240, #00ff00, #00ffff, #0000ff, #ff00ff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            animation: rainbow 5s linear infinite;
-        }
-
-        @keyframes rainbow {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        .rainbow-button-inner {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #fff;
-        }
-
         #roulette {
             display: flex;
             align-items: center;
@@ -330,21 +235,9 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: conic-gradient(#ff6347 0deg 90deg, #ffd700 90deg 180deg, #32cd32 180deg 270deg, #1e90ff 270deg 360deg);
+            background: conic-gradient(#ff6347 0deg 72deg, #ffd700 72deg 144deg, #32cd32 144deg 216deg, #1e90ff 216deg 288deg, #8a2be2 288deg 360deg);
             position: relative;
-        }
-
-        #roulette:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 50%;
-            z-index: 1;
+            transition: transform 5s cubic-bezier(0.33, 1, 0.68, 1);
         }
 
         .roulette-segment {
@@ -363,102 +256,49 @@
             color: #fff;
         }
 
-        .segment1 { transform: rotate(45deg); }
-        .segment2 { transform: rotate(135deg); }
-        .segment3 { transform: rotate(225deg); }
-        .segment4 { transform: rotate(315deg); }
+        .segment1 { transform: rotate(36deg); }
+        .segment2 { transform: rotate(108deg); }
+        .segment3 { transform: rotate(180deg); }
+        .segment4 { transform: rotate(252deg); }
+        .segment5 { transform: rotate(324deg); }
 
-        .user-info-modal {
-            display: none;
-            position: fixed;
+        .arrow {
+            position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 300px;
-            padding: 20px;
+            width: 20px;
+            height: 20px;
             background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 0.2s ease-in-out;
+            clip-path: polygon(50% 0, 0 100%, 100% 100%);
+            transform: translate(-50%, -100%);
+            z-index: 1;
         }
 
-        .user-info-modal.dark-theme {
-            background: #333;
-            color: #fff;
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: fall 8s linear infinite, rotate 5s linear infinite;
+            z-index: 0;
         }
 
-        .user-info-modal button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
+        @keyframes fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+            }
+            100% {
+                top: 110%;
+                opacity: 0;
+            }
         }
 
-        .user-info-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 10px auto;
-            background-size: cover;
-            background-position: center;
-            cursor: pointer;
-        }
-
-        .user-info-nickname {
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .color-picker-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 300px;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 0.2s ease-in-out;
-        }
-
-        .color-picker-modal.dark-theme {
-            background: #333;
-            color: #fff;
-        }
-
-        .color-picker {
-            width: 100%;
-            height: 150px;
-            margin: 20px 0;
-            background: linear-gradient(to right, #ff0000, #00ff00, #0000ff);
-            border-radius: 10px;
-        }
-
-        .color-picker-controls {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .color-picker-button {
-            width: 45%;
-            padding: 10px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .color-picker-button:hover {
-            background: #ddd;
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
@@ -470,7 +310,6 @@
         <div class="dropdown-buttons" id="dropdown-buttons">
             <button id="theme-button"><img src="https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png" alt="Theme Icon"></button>
             <button id="user-info-button"><img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="User Icon"></button>
-            <button><img src="https://img.icons8.com/ios-filled/50/ffffff/info.png" alt="Info Icon"></button>
             <button id="settings-button"><img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="Settings Icon"></button>
         </div>
         <h1>Онлайн магазин</h1>
@@ -493,6 +332,7 @@
     <div id="settings-modal" class="modal">
         <button id="profile">Профиль</button>
         <button id="change-language">Смена языка</button>
+        <button id="about">О нас</button>
         <button id="toggle-sound">Отключить звук</button>
         <div class="modal-close" id="close-modal"></div>
     </div>
@@ -503,11 +343,14 @@
             <div class="roulette-segment segment2">Приз 2</div>
             <div class="roulette-segment segment3">Приз 3</div>
             <div class="roulette-segment segment4">Приз 4</div>
+            <div class="roulette-segment segment5">Приз 5</div>
+            <div class="arrow"></div>
         </div>
+        <button id="start-roulette">Крутить</button>
         <div class="modal-close" id="close-gift-modal"></div>
     </div>
 
-    <div id="user-info-modal" class="user-info-modal">
+    <div id="user-info-modal" class="modal">
         <div class="user-info-avatar" id="user-avatar" style="background-image: url('https://via.placeholder.com/80');"></div>
         <div class="user-info-nickname" id="user-nickname">Username</div>
         <div class="user-info-details">
@@ -517,35 +360,14 @@
         <div class="modal-close" id="close-user-info-modal"></div>
     </div>
 
-    <div id="color-picker-modal" class="color-picker-modal">
-        <div class="color-picker" id="color-picker"></div>
-        <div class="color-picker-controls">
-            <button class="color-picker-button" id="confirm-color">Подтвердить</button>
-            <button class="color-picker-button" id="cancel-color">Отменить</button>
-        </div>
-    </div>
-
-    <audio id="background-music" loop>
-        <source src="C:/Users/den/Downloads/relaxing_music.wav" type="audio/wav">
-        Ваш браузер не поддерживает элемент audio.
-    </audio>
-
-    <audio id="click-sound">
-        <source src="C:/Users/den/Downloads/click_sound.wav" type="audio/wav">
-        Ваш браузер не поддерживает элемент audio.
-    </audio>
-
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         Telegram.WebApp.ready();
 
-        const backgroundMusic = document.getElementById('background-music');
-        const clickSound = document.getElementById('click-sound');
         const themeToggle = document.getElementById('theme-button');
         const body = document.body;
         const settingsModal = document.getElementById('settings-modal');
         const closeModal = document.getElementById('close-modal');
-        const settingsButton = document.getElementById('settings-button');
         const floatingButton = document.getElementById('floating-button');
         const dropdownButtons = document.getElementById('dropdown-buttons');
         const giftButton = document.getElementById('gift-button');
@@ -554,27 +376,15 @@
         const userInfoButton = document.getElementById('user-info-button');
         const userInfoModal = document.getElementById('user-info-modal');
         const closeUserInfoModal = document.getElementById('close-user-info-modal');
-        const rainbowButton = document.getElementById('rainbow-button');
-        const colorPickerModal = document.getElementById('color-picker-modal');
-        const confirmColorButton = document.getElementById('confirm-color');
-        const cancelColorButton = document.getElementById('cancel-color');
-        const colorPicker = document.getElementById('color-picker');
-        const toggleSoundButton = document.getElementById('toggle-sound');
-
-        backgroundMusic.volume = 0.5;
-        backgroundMusic.play();
-
-        document.getElementById('buy').addEventListener('click', function() {
-            clickSound.play();
-            Telegram.WebApp.close();
-        });
+        const startRouletteButton = document.getElementById('start-roulette');
+        const settingsButton = document.getElementById('settings-button');
+        const roulette = document.getElementById('roulette');
 
         themeToggle.addEventListener('click', function() {
             body.classList.toggle('dark-theme');
             settingsModal.classList.toggle('dark-theme');
             giftModal.classList.toggle('dark-theme');
             userInfoModal.classList.toggle('dark-theme');
-            colorPickerModal.classList.toggle('dark-theme');
             if (body.classList.contains('dark-theme')) {
                 themeToggle.innerHTML = '<img src="https://img.icons8.com/ios-filled/50/000000/sun.png" alt="Sun Icon">';
             } else {
@@ -582,16 +392,8 @@
             }
         });
 
-        settingsButton.addEventListener('click', function() {
-            settingsModal.style.display = 'block';
-        });
-
-        closeModal.addEventListener('click', function() {
-            settingsModal.style.opacity = '0';
-            setTimeout(() => {
-                settingsModal.style.display = 'none';
-                settingsModal.style.opacity = '1';
-            }, 200);
+        document.getElementById('buy').addEventListener('click', function() {
+            Telegram.WebApp.close();
         });
 
         giftButton.addEventListener('click', function() {
@@ -623,36 +425,21 @@
             }, 200);
         });
 
-        rainbowButton.addEventListener('click', function() {
-            colorPickerModal.style.display = 'block';
-        });
-
-        confirmColorButton.addEventListener('click', function() {
-            const selectedColor = getComputedStyle(colorPicker).backgroundColor;
-            body.style.background = selectedColor;
-            colorPickerModal.style.opacity = '0';
+        closeModal.addEventListener('click', function() {
+            settingsModal.style.opacity = '0';
             setTimeout(() => {
-                colorPickerModal.style.display = 'none';
-                colorPickerModal.style.opacity = '1';
+                settingsModal.style.display = 'none';
+                settingsModal.style.opacity = '1';
             }, 200);
         });
 
-        cancelColorButton.addEventListener('click', function() {
-            colorPickerModal.style.opacity = '0';
-            setTimeout(() => {
-                colorPickerModal.style.display = 'none';
-                colorPickerModal.style.opacity = '1';
-            }, 200);
+        settingsButton.addEventListener('click', function() {
+            settingsModal.style.display = 'block';
         });
 
-        toggleSoundButton.addEventListener('click', function() {
-            if (backgroundMusic.muted) {
-                backgroundMusic.muted = false;
-                toggleSoundButton.textContent = 'Отключить звук';
-            } else {
-                backgroundMusic.muted = true;
-                toggleSoundButton.textContent = 'Включить звук';
-            }
+        startRouletteButton.addEventListener('click', function() {
+            const randomDegree = Math.floor(Math.random() * 360) + 360 * 3;
+            roulette.style.transform = `rotate(${randomDegree}deg)`;
         });
 
         function createEmoji(emoji) {
@@ -670,17 +457,14 @@
 
         setInterval(() => {
             createEmoji('🔥');
-            createEmoji('👌');
         }, 1000);
 
-        // Adjust theme based on device theme
         const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
         if (prefersDarkScheme.matches) {
             body.classList.add('dark-theme');
             settingsModal.classList.add('dark-theme');
             giftModal.classList.add('dark-theme');
             userInfoModal.classList.add('dark-theme');
-            colorPickerModal.classList.add('dark-theme');
             themeToggle.innerHTML = '<img src="https://img.icons8.com/ios-filled/50/000000/sun.png" alt="Sun Icon">';
         }
     </script>
