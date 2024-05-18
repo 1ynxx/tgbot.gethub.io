@@ -6,12 +6,18 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow: hidden;
+            height: 100%;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
             color: #000;
             background: linear-gradient(to bottom, #ffffff, #000000);
             transition: background 0.5s, color 0.5s;
+            user-select: none;
         }
 
         body.dark-theme {
@@ -228,7 +234,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: conic-gradient(#ff6347 0deg 72deg, #ffd700 72deg 144deg, #32cd32 144deg 216deg, #1e90ff 216deg 288deg, #8a2be2 288deg 360deg);
+            background: conic-gradient(#ADD8E6 0deg 72deg, #B19CD9 72deg 144deg, #ADD8E6 144deg 216deg, #B19CD9 216deg 288deg, #ADD8E6 288deg 360deg);
             position: relative;
             transition: transform 5s cubic-bezier(0.33, 1, 0.68, 1);
         }
