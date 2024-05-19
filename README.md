@@ -483,6 +483,8 @@
             e.preventDefault();
             alert('Контекстное меню запрещено на этой странице.');
         });
+
+        Telegram.WebApp.expand();
     </script>
 </body>
 </html>
